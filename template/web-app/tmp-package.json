@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "towerflow start",
+    "production": "towerflow production",
+    "test": "towerflow test --env=jsdom",
+    "generate-config": "towerflow assistant --generate-config",
+    "remove-config": "towerflow assistant --remove-config"
+  },
+  "towerflow": {
+    "type": "web-app"
+  },
+  "dependencies": {
+    "@types/react": "",
+    "@types/react-dom": "",
+    "@types/styled-components": "",
+    "react": "",
+    "react-dom": "",
+    "styled-components": ""
+  },
+  "devDependencies": {
+    "towerflow": ""
+  }
+}

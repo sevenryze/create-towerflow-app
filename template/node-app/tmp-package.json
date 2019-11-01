@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/src/index.js",
+  "files": ["dist/", "typings/"],
+  "scripts": {
+    "start": "towerflow start",
+    "production": "towerflow production",
+    "test": "towerflow test --env=node",
+    "publish-to-npm": "npm run test && npm run production && npm publish --access public",
+    "generate-config": "towerflow assistant --generate-config",
+    "remove-config": "towerflow assistant --remove-config"
+  },
+  "towerflow": {
+    "type": "node-app"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "towerflow": ""
+  }
+}
