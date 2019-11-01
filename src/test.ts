@@ -1,6 +1,6 @@
 import { checkRequiredFiles } from "./helper/check-required-files";
 import { Debug } from "./helper/debugger";
-import { TowerflowType } from "./interface";
+import { TowerflowProjectType } from "./interface";
 import { runJest } from "./jest/run-jest";
 
 const debug = Debug(__filename);
@@ -8,7 +8,7 @@ const debug = Debug(__filename);
 export async function test(options: {
   appName: string;
   appPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   ownPath: string;
 }) {
   const { appName, ownPath, appPath, appType } = options;

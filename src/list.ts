@@ -1,5 +1,5 @@
 import Table from "tty-table";
-import { TowerflowType } from "./interface";
+import { TowerflowProjectType } from "./interface";
 import fs from 'fs';
 import { parsePath } from "./helper/parse-path";
 
@@ -54,13 +54,13 @@ export function list(options: {
     const templateDir = fs.readdirSync(parsePath(ownPath, "template"));
     const templateTableRows = templateDir.map((name) => {
         switch (name) {
-            case TowerflowType.nodeApp:
+            case TowerflowProjectType.NodeApp:
                 return [name, "template of node app"];
-            case TowerflowType.nodeLib:
+            case TowerflowProjectType.NodeLib:
                 return [name, "template of node lib"];
-            case TowerflowType.webApp:
+            case TowerflowProjectType.WebApp:
                 return [name, "template of react app"];
-            case TowerflowType.webLib:
+            case TowerflowProjectType.WebLib:
                 return [name, "template of web lib"];
         }
     });

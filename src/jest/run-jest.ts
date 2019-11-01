@@ -2,13 +2,13 @@ import crossSpawn from "cross-spawn";
 import path from "path";
 import { Debug } from "../helper/debugger";
 import { parsePath } from "../helper/parse-path";
-import { TowerflowType } from "../interface";
+import { TowerflowProjectType } from "../interface";
 
 const debug = Debug(__filename);
 
 export function runJest(options: {
   appPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   ownPath: string;
 }) {
   const { appType, appPath, ownPath } = options;

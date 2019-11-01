@@ -5,14 +5,14 @@ import path from "path";
 import { checkRequiredFiles } from "./helper/check-required-files";
 import { Debug } from "./helper/debugger";
 import { parsePath } from "./helper/parse-path";
-import { TowerflowType } from "./interface";
+import { TowerflowProjectType } from "./interface";
 
 const debug = Debug(__filename);
 
 export async function assistant(options: {
   appPath: string;
   ownPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   isGenerateConfig: boolean;
   isRemoveConfig: boolean;
 }) {

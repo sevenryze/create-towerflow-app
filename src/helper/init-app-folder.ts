@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import fsExtra from "fs-extra";
 import os from "os";
-import { TowerflowType } from "../interface";
+import { TowerflowProjectType } from "../interface";
 import { Debug } from "./debugger";
 import { installDeps } from "./install-deps";
 import { parsePath } from "./parse-path";
@@ -9,7 +9,7 @@ import { parsePath } from "./parse-path";
 const debug = Debug(__filename);
 
 export function initAppFolder(options: {
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   appPath: string;
   ownPath: string;
   isBypassNpm: boolean;
@@ -131,7 +131,7 @@ export function initAppFolder(options: {
   }
 }
 
-function checkBypassFiles(appType: TowerflowType, src: string) {
+function checkBypassFiles(appType: TowerflowProjectType, src: string) {
   return new RegExp(`template\/${appType}\/config|tmp-package.json$`).test(
     parsePath(src)
   );

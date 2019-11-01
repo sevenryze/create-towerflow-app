@@ -1,19 +1,19 @@
 import { removeSync } from "fs-extra";
 import klawSync from "klaw-sync";
-import { TowerflowType } from "../interface";
+import { TowerflowProjectType } from "../interface";
 import { Debug } from "./debugger";
 import { matchTsFile } from "./match-ts-file";
 import { parsePath } from "./parse-path";
 
 const debug = Debug(__filename);
 
-export function cleanSrcFolder(appPath: string, appType: TowerflowType) {
+export function cleanSrcFolder(appPath: string, appType: TowerflowProjectType) {
   switch (appType) {
-    case TowerflowType.nodeLib:
-    case TowerflowType.webLib:
+    case TowerflowProjectType.NodeLib:
+    case TowerflowProjectType.WebLib:
       cleanFolder([`${appPath}/lib`]);
       break;
-    case TowerflowType.nodeApp:
+    case TowerflowProjectType.NodeApp:
       cleanFolder([`${appPath}/src`, `${appPath}/bin`]);
       break;
     default:

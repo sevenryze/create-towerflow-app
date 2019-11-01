@@ -1,7 +1,7 @@
 import { removeSync } from "fs-extra";
 import { Debug } from "../helper/debugger";
 import { parsePath } from "../helper/parse-path";
-import { BuildType, TowerflowType } from "../interface";
+import { BuildType, TowerflowProjectType } from "../interface";
 import { createTsc } from "./create-tsc";
 import { runTsLint } from "./create-tslint";
 import { generateTempTsconfig } from "./generate-temp-tsconfig";
@@ -11,7 +11,7 @@ const debug = Debug(__filename);
 export function runTsc(options: {
   type: BuildType;
   appPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   ownPath: string;
 }) {
   const { type, appType, appPath, ownPath } = options;

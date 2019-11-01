@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import { clearConsole } from "../helper/clear-console";
 import { Debug } from "../helper/debugger";
-import { BuildType, TowerflowType } from "../interface";
+import { BuildType, TowerflowProjectType } from "../interface";
 import { createWebpackCompiler } from "./create-webpack-compiler";
 import { createWebpackDevServer } from "./create-webpack-dev-server";
 import { getWebpackConfig } from "./get-webpack-config";
@@ -11,7 +11,7 @@ const debug = Debug(__filename);
 
 export function runWebpack(options: {
   appPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   buildType: BuildType;
   distPath: string;
   ownPath: string;

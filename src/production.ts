@@ -2,7 +2,7 @@ import chalk from "chalk";
 import { checkRequiredFiles } from "./helper/check-required-files";
 import { Debug } from "./helper/debugger";
 import { parsePath } from "./helper/parse-path";
-import { BuildType, TowerflowType } from "./interface";
+import { BuildType, TowerflowProjectType } from "./interface";
 import { runTsc } from "./tsc/run-tsc";
 import { runWebpack } from "./webpack/run-webpack";
 
@@ -10,7 +10,7 @@ const debug = Debug(__filename);
 
 export async function production(options: {
   appPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   ownPath: string;
 }) {
   const { ownPath, appPath, appType } = options;
@@ -21,7 +21,7 @@ export async function production(options: {
   }
 
   switch (options.appType) {
-    case TowerflowType.webApp:
+    case TowerflowProjectType.WebApp:
       runWebpack({
         appPath,
         appType,
@@ -33,9 +33,9 @@ export async function production(options: {
       });
       break;
 
-    case TowerflowType.nodeApp:
-    case TowerflowType.nodeLib:
-    case TowerflowType.webLib:
+    case TowerflowProjectType.NodeApp:
+    case TowerflowProjectType.NodeLib:
+    case TowerflowProjectType.WebLib:
       runTsc({
         appPath,
         appType,

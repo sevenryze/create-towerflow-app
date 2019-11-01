@@ -1,14 +1,14 @@
 import crossSpawn from "cross-spawn";
 import { Debug } from "../helper/debugger";
 import { parsePath } from "../helper/parse-path";
-import { TowerflowType } from "../interface";
+import { TowerflowProjectType } from "../interface";
 
 const debug = Debug(__filename);
 
 export function runTsLint(options: {
   appPath: string;
   ownPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   tsconfigPath: string;
 }) {
   const { appPath, ownPath, appType, tsconfigPath } = options;

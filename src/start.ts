@@ -2,7 +2,7 @@ import chalk from "chalk";
 import { checkRequiredFiles } from "./helper/check-required-files";
 import { Debug } from "./helper/debugger";
 import { parsePath } from "./helper/parse-path";
-import { BuildType, TowerflowType } from "./interface";
+import { BuildType, TowerflowProjectType } from "./interface";
 import { runTsc } from "./tsc/run-tsc";
 import { runWebpack } from "./webpack/run-webpack";
 
@@ -10,7 +10,7 @@ const debug = Debug(__filename);
 
 export async function start(options: {
   appPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   ownPath: string;
   port: number;
 }) {
@@ -22,8 +22,8 @@ export async function start(options: {
   }
 
   switch (options.appType) {
-    case TowerflowType.webApp:
-    case TowerflowType.webLib:
+    case TowerflowProjectType.WebApp:
+    case TowerflowProjectType.WebLib:
       runWebpack({
         port,
         appPath,
@@ -32,18 +32,18 @@ export async function start(options: {
         distPath: parsePath(options.appPath, "dist"),
         ownPath,
         indexPath:
-          options.appType === TowerflowType.webApp
+          options.appType === TowerflowProjectType.WebApp
             ? `${options.appPath}/src/index.tsx`
             : `${options.appPath}/human-test/index.tsx`,
         publicDirPath:
-          options.appType === TowerflowType.webApp
+          options.appType === TowerflowProjectType.WebApp
             ? `${options.appPath}/public`
             : `${options.appPath}/human-test/public`
       });
       break;
 
-    case TowerflowType.nodeApp:
-    case TowerflowType.nodeLib:
+    case TowerflowProjectType.NodeApp:
+    case TowerflowProjectType.NodeLib:
       runTsc({
         appPath,
         appType,

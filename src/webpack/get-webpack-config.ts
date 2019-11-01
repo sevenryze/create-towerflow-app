@@ -5,13 +5,13 @@ import TerserPlugin from "terser-webpack-plugin";
 import webpack from "webpack";
 import { Debug } from "../helper/debugger";
 import { parsePath } from "../helper/parse-path";
-import { BuildType, TowerflowType } from "../interface";
+import { BuildType, TowerflowProjectType } from "../interface";
 
 const debug = Debug(__filename);
 
 export function getWebpackConfig(options: {
   appPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   buildType: BuildType;
   distPath: string;
   indexPath: string;

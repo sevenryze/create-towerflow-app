@@ -3,7 +3,7 @@ import fsExtra from "fs-extra";
 import { Debug } from "./helper/debugger";
 import { initAppFolder } from "./helper/init-app-folder";
 import { waitSecond } from "./helper/wait-time";
-import { TowerflowType } from "./interface";
+import { TowerflowProjectType } from "./interface";
 
 const debug = Debug(__filename);
 
@@ -13,7 +13,7 @@ const debug = Debug(__filename);
 export async function init(options: {
   appName: string;
   appPath: string;
-  appType: TowerflowType;
+  appType: TowerflowProjectType;
   fatherPath: string;
   isBypassNpm: boolean;
   isForce: boolean;
@@ -27,20 +27,14 @@ export async function init(options: {
   if (fsExtra.existsSync(appPath)) {
     if (isForce) {
       console.log(
-        `You will delete the ${appName} folder, I give you ${chalk.redBright(
-          "5 seconds to CTRL-C"
-        )} this process.`
+        `You will delete the ${appName} folder, I give you ${chalk.redBright("5 seconds to CTRL-C")} this process.`
       );
 
       await waitSecond(5, restSeconds => {
-        console.log(
-          `You have ${chalk.green(restSeconds.toString())} rest seconds.`
-        );
+        console.log(`You have ${chalk.green(restSeconds.toString())} rest seconds.`);
       });
 
-      console.log(
-        `OK, you have awared what you are doing. Now, deleting the ${appName} folder.`
-      );
+      console.log(`OK, you have awared what you are doing. Now, deleting the ${appName} folder.`);
 
       fsExtra.removeSync(appPath);
     } else {

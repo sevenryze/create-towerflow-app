@@ -1,11 +1,11 @@
-export const enum TowerflowType {
-  webApp = "web-app",
-  webLib = "web-lib",
-  nodeApp = "node-app",
-  nodeLib = "node-lib"
+export const enum TowerflowProjectType {
+  WebApp = "web-app",
+  WebLib = "web-lib",
+  NodeApp = "node-app",
+  NodeLib = "node-lib"
 }
 
 export enum BuildType {
-  production = "producation",
+  production = "production",
   dev = "development"
 }
